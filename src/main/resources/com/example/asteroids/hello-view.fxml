@@ -3,7 +3,28 @@
 <?import javafx.scene.layout.AnchorPane?>
 
 <?import javafx.scene.image.ImageView?>
+<?import javafx.scene.Group?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.text.Font?>
 <AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.asteroids.HelloController">
     <ImageView fx:id="bg1" fitWidth="900" fitHeight="600"/>
     <ImageView fx:id="bg2" fitWidth="900" fitHeight="600"/>
+    <Group fx:id="groupRocket">
+    <ImageView fx:id="rocket" fitWidth="40" fitHeight="90" rotate="90" layoutX="100" layoutY="285"/>
+    <ImageView fx:id="flame" rotate="-90" fitWidth="20" fitHeight="30" layoutX="75" layoutY="315"/>
+</Group>
+    <ImageView fx:id="asteroid1" fitWidth="60" fitHeight="70" />
+    <ImageView fx:id="asteroid2" fitWidth="60" fitHeight="70"/>
+    <ImageView fx:id="asteroid3" fitWidth="60" fitHeight="70"/>
+    <Label fx:id="lblGameOver" layoutX="300.0" layoutY="200.0" text="GameOver" textFill="e5ff00">
+       <font>
+           <Font size="72.0" />
+       </font>
+    </Label>
+    <Label fx:id="lblScore" layoutX="850" layoutY="50" text="0" textFill="red">
+    <font>
+        <Font size = "36.0"/>
+    </font>
+    </Label>
+
 </AnchorPane>
