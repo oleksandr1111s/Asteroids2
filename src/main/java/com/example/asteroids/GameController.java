@@ -12,7 +12,7 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.util.Duration;
 
-public class HelloController {
+public class GameController {
 
     @FXML
     private ImageView bg1, bg2, rocket, asteroid1, asteroid2, asteroid3, flame;
@@ -24,16 +24,19 @@ public class HelloController {
     private Label lblGameOver, lblScore;
 
     private double offset = 0;
-    private int score = 0;
     private double asteroid_1_x = 900 + Math.random() * 300;
     private double asteroid_2_x = 900 + Math.random() * 300;
     private double asteroid_3_x = 900 + Math.random() * 300;
+    private int score = 0;
     private double speed = 0;
 
     @FXML
     public void initialize() {
+        asteroid_1_x = 900 + Math.random() * 300;
+        asteroid_2_x = 900 + Math.random() * 300;
+        asteroid_3_x = 900 + Math.random() * 300;
+
         lblGameOver.setVisible(false);
-        fireAnimation();
 
         Image background = new Image(getClass().getResourceAsStream("/images/background.jpg"));
         Image imageAsteroid = new Image(getClass().getResourceAsStream("/images/asteroid.png"));
@@ -50,11 +53,12 @@ public class HelloController {
         bg1.setImage(background);
         bg2.setImage(background);
         bg2.setLayoutX(900);
+        fireAnimation();
 
         AnimationTimer timer = new AnimationTimer() {
             @Override
             public void handle(long l) {
-                speed += 0.2;
+
 
                 if (checkCollision() == true){
                     lblGameOver.setVisible(true);
@@ -76,6 +80,7 @@ public class HelloController {
                     asteroid_1_x = 900 + Math.random() * 300;
                     asteroid1.setLayoutY(Math.random() * 540);
                     score++;
+                    speed += 0.2;
                 }
                 asteroid1.setLayoutX(asteroid_1_x);
                 asteroid1.setRotate(asteroid_1_x);
@@ -84,6 +89,7 @@ public class HelloController {
                     asteroid_2_x = 900 + Math.random() * 300;
                     asteroid2.setLayoutY(Math.random() * 540);
                     score++;
+                    speed += 0.2;
                 }
                 asteroid2.setLayoutX(asteroid_2_x);
                 asteroid2.setRotate(asteroid_2_x);
@@ -92,6 +98,7 @@ public class HelloController {
                     asteroid_3_x = 900 + Math.random() * 300;
                     asteroid3.setLayoutY(Math.random() * 540);
                     score++;
+                    speed += 0.2;
                 }
                 asteroid3.setLayoutX(asteroid_3_x);
                 asteroid3.setRotate(asteroid_3_x);
@@ -110,7 +117,6 @@ public class HelloController {
         if (keyEvent.getCode() == KeyCode.UP && groupRocket.getLayoutY() >= -300 && checkCollision() == false) {
             groupRocket.setLayoutY(groupRocket.getLayoutY() - 10);
             groupRocket.setRotate(-15);
-
         }
         if (keyEvent.getCode() == KeyCode.DOWN && groupRocket.getLayoutY() <= 240 && checkCollision() == false) {
             groupRocket.setLayoutY(groupRocket.getLayoutY() + 10);
@@ -135,8 +141,9 @@ public class HelloController {
 
         return false;
     }
+
     public void fireAnimation(){
-        FadeTransition fire =new FadeTransition(Duration.millis(120), flame);
+        FadeTransition fire = new FadeTransition(Duration.millis(120),flame);
         fire.setFromValue(0.3);
         fire.setToValue(1.2);
         fire.setCycleCount(Animation.INDEFINITE);

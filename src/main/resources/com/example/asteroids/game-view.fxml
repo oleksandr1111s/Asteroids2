@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/17.0.12" fx:controller="com.example.asteroids.GameController">
+    <ImageView fx:id="bg1" fitHeight="600" fitWidth="900" />
+    <ImageView fx:id="bg2" fitHeight="600" fitWidth="900" />
+    <Group fx:id="groupRocket">
+        <ImageView fx:id="rocket" fitHeight="90" fitWidth="40" layoutX="125" layoutY="285" rotate="90" />
+        <ImageView fx:id="flame" fitHeight="30" fitWidth="20" layoutX="100" layoutY="315" rotate="-90" />
+    </Group>
+    <ImageView fx:id="asteroid1" fitHeight="60" fitWidth="70" />
+    <ImageView fx:id="asteroid2" fitHeight="60" fitWidth="70" />
+    <ImageView fx:id="asteroid3" fitHeight="60" fitWidth="70" />
+    <Label fx:id="lblGameOver" layoutX="300.0" layoutY="200.0" text="Game Over" textFill="#fffb15">
+        <font>
+            <Font size="72.0" />
+        </font>
+    </Label>
+    <Label fx:id="lblScore" layoutX="850" layoutY="50" text="0" textFill="yellow">
+        <font>
+            <Font size = "36.0"></Font>
+        </font>
+    </Label>
+
+</AnchorPane>
